@@ -26,14 +26,3 @@ app.use(require("./routes/html-routes.js"));
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
-
-
-//
-// const databaseUrl = "Track-Fit";
-// const collections = ["exercises"];
-
-// const db = mongojs(databaseUrl, collections);
-
-// db.on("error", error => {
-//   console.log("Database Error:", error);
-// });
