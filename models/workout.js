@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 const workoutSchema = new Schema(
   {
     day: {
-      // For the schema of this attribute, define type and default
       type: Date,
       default: () => new Date(),
     },
@@ -13,25 +12,34 @@ const workoutSchema = new Schema(
       // Schema for each item in exercises array
       {
         type: {
-          // For the schema of this attribute, define type and trim and required
+          type: String,
+          trim: true,
+          required: "Exercise type is required"
         },
         name: {
-          // For the schema of this attribute, define type and trim and required
+          type: String,
+          trim: true,
+          required: "Exercise name is required"
         },
         duration: {
-          // For the schema of this attribute, define type as number and its required
+          type: Number,
+          required: "Exercise duration is required"
         },
         weight: {
-          // For the schema of this attribute, define type as number
+          type: Number,
+          required: "Weight is required"
         },
         reps: {
-          // For the schema of this attribute, define type as number
+          type: Number,
+          required: "Number of reps is required"
         },
         sets: {
-          // For the schema of this attribute, define type as number
+          type: Number,
+          required: "Number of sets is required"
         },
         distance: {
-          // For the schema of this attribute, define type as number
+          type: Number,
+          required: "Distance is required"
         },
       },
     ],
