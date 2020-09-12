@@ -1,7 +1,6 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const path = require("path");
 
 const PORT = process.env.PORT || 3000;
 
@@ -26,14 +25,3 @@ app.use(require("./routes/html-routes_starter.js"));
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
-
-
-//
-// const databaseUrl = "Track-Fit";
-// const collections = ["exercises"];
-
-// const db = mongojs(databaseUrl, collections);
-
-// db.on("error", error => {
-//   console.log("Database Error:", error);
-// });
