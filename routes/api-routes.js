@@ -5,45 +5,45 @@ router.put("/api/workouts/:id", (req, res) => {
     db.Workout.updateOne(
        {_id: mongojs.ObjectID(req.params.id)}, { new: true, runValidators: true }
     )
-  
-      // Fill in .then() with call back function that takes result from db as input argument and send it back to browser
-      .then()
-  
-      // Fill in .catch() with call back function that takes error as input argument and send it back to browser
-      .catch()
+      .then(dbWorkout => {
+        res.json(dbWorkout)
+      })
+      .catch(err => {
+        res.status(400).json(err);
+      })
 });
 
 router.post("/api/workouts", (req, res) => {
     console.log(req.body);
   
-    db.Workout.insert(req.body, (error, data) => {
-      if (error) {
-        res.send(error);
-      } else {
-        res.send(data);
-      }
-    });
+    db.Workout.create(req.body)
+    .then(dbWorkout => {
+      res.json(dbWorkout)
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    })
   });
 
 router.get("/api/workouts", (req, res) => {
   console.log(req.body);
-
-  db.Workout.insert(req.body, (error, data) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.send(data);
-    }
+  db.Workout.find({})
+  .then(dbWorkout => {
+    res.json(dbWorkout);
+  })
+  .catch(err => {
+    res.status(400).json(err);
   });
 });
 
 router.get("/api/workouts/range", (req, res) => {
-  db.Workout.find({}, (error, data) => {
-      if (error) {
-        res.send(error);
-      } else {
-        res.send(data);
-      }
-    }
-  );
+  db.Workout.find({})
+      .sort({ date: -1 })
+      .limit(7)
+      .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.status(400).json(err);
+      });
 });
