@@ -22,6 +22,10 @@ Powered by:
 
 If you are interested in contributing to this project, feel free to fork this repository and open a pull request to suggest changes.
 
-## Access <a name="access"></a>
+## Access and Appearance <a name="access"></a>
 
 <a href="https://floating-headland-30522.herokuapp.com/?id=5f5d7e8ac24e5a001702762f" target="_blank">LINK to application</a>
+
+![image](insert_exercise.png)
+
+![image](dashboard.png)
